@@ -9,7 +9,7 @@ insert_SORT : 삽입정렬
 bubble_SORT : 버블정렬
 => 
 
-merger_SORT : 병합정렬
+merge_SORT : 병합정렬
 =>
 
 heap_SORT : 힙정렬

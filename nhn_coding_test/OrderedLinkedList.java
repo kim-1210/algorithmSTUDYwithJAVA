@@ -41,10 +41,6 @@ public class OrderedLinkedList implements List {
                     cur = newNode;
                     pre.next = cur;
                     break;
-                }
-                else if (this.cur.next == null) {
-                    cur.next = newNode;
-                    break;
                 } else if (this.cur.value > value) {
                     pre.next = newNode;
                     newNode.next = this.cur;

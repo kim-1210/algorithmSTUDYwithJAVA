@@ -82,12 +82,13 @@ public class OrderedArrayList_exception implements List {
         if(end == 0){
             throw new RuntimeException();
         }
+        int re_get = values[0];
         for (int i = 1; i < end; i++) {
             values[i - 1] = values[i];
         }
         values[end - 1] = 0;
         end--;
-        return values[0];
+        return re_get;
     }
 
     @Override

@@ -32,9 +32,6 @@ public class Exam1 {
         System.out.println("arraycopy(b, 4, b, 2, 5)");
         arraycopy(b, 4, b, 2, 5);
         System.out.println("Arrays.equals(a, b) = " + Arrays.equals(a, b));
-
-        String[] str = {"12", "23", "23", "23", "23", "23", "23", "23"};
-        arraycopy(a,-1, a, 2, 5);
     }
 
     public static void arraycopy(int[] src, int srcPos, int[] dest, int destPos, int length) {

@@ -57,10 +57,7 @@ public class OrderedLinkedListT<T extends Comparable<T>> implements List<T> {
                         cur = newStu;
                         pre.next = cur;
                         break;
-                    } else if (this.cur.next == null) {
-                        this.cur.next = newStu;
-                        break;
-                    } else if (this.cur.getId() > newStu.getId()) {
+                    }else if (this.cur.getId() > newStu.getId()) {
                         pre.next = newStu;
                         newStu.next = this.cur;
                         break;

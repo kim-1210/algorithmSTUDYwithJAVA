@@ -74,7 +74,7 @@ class Ball extends Shape implements Shape3D {
 
     @Override
     public double getVolume() {
-        return 4 / 3 * Math.PI * Math.pow(r, 3);
+        return (4.0 / 3.0) * (Math.PI * Math.pow(this.r, 3));
     }
 
     @Override
@@ -118,17 +118,20 @@ public class World {
         shapes[3] = box;
         // 6-3 도형 종류를 출력하라(10)
         System.out.println("Shapes : " + Arrays.toString(shapes));
-        //6-4 2차원 도형만 출력하라(20)
+        // 6-4 2차원 도형만 출력하라(20)
         System.out.print("2차원 도형은 ");
         for (Shape k : shapes) {
-            if(k instanceof Circle || k instanceof Rectangle){
+            if (k instanceof Circle || k instanceof Rectangle) {
                 System.out.print(k + " ");
             }
         }
         System.out.print("이며, 넓이는 ");
         for (Shape k : shapes) {
-            if(k instanceof Circle){System.out.print(((Circle)k).getArea() + " ");}
-            else if(k instanceof Rectangle){System.out.print(((Rectangle)k).getArea() + " ");}
+            if (k instanceof Circle) {
+                System.out.print(((Circle) k).getArea() + " ");
+            } else if (k instanceof Rectangle) {
+                System.out.print(((Rectangle) k).getArea() + " ");
+            }
         }
         System.out.println("입니다.");
 
@@ -136,17 +139,17 @@ public class World {
         // 주석 처리된 부분에만 코드를 추가한다.
         // Java Stream을 이용해 구현한다.
         System.out.print("3차원 도형은 ");
+        String str = "";
         Object[] shape3ds = Arrays.stream(shapes).filter(shape -> (shape instanceof Ball) || (shape instanceof Box))
-        .toArray();
-        System.out.print(Arrays.toString(shape3ds) + " 이며, 부피는 [");
-        for(Object shape : shape3ds){
-            if(shape instanceof Ball)
-            {System.out.print(((Ball)shape).getVolume());}
-            else if(shape instanceof Box)
-            {System.out.print(((Box)shape).getVolume());}
-            System.out.print(" ");
-        }
-        System.out.print("] 입니다.");
+                .toArray();
+        System.out.println(Arrays.toString(shape3ds) + " 이며, 부피는 " + Arrays.toString(Arrays.stream(shape3ds).map(shape -> {
+            if (shape instanceof Ball) {
+                return ((Ball) shape).getVolume();
+            } else {
+                return ((Box) shape).getVolume();
+            }
+        }).toArray())
+        + " 입니다.");
     }
 
 }
